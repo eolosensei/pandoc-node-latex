@@ -1,0 +1,70 @@
+% declara el estilo ged-margin para incluir más datos en el margen del ejercicio
+% this file must be placed in $HOME$/texmf/tex/latex to be accesible for all
+
+% translations
+\DeclareExerciseTranslation{Spanish}{exercise}{ejercicio}
+\DeclareExerciseTranslation{Spanish}{exercises}{ejercicios}
+\DeclareExerciseTranslation{Spanish}{question}{pregunta}
+\DeclareExerciseTranslation{Spanish}{questions}{preguntas}
+\DeclareExerciseTranslation{Spanish}{solution}{solución}
+\DeclareExerciseTranslation{Spanish}{solutions}{soluciones}
+\DeclareExerciseTranslation{Spanish}{default-heading}{
+  \XSIMmixedcase{\GetExerciseParameter{solutions-name}} a los \GetExerciseParameter {exercises-name}
+}
+
+\DeclareExerciseEnvironmentTemplate{gedmargin}
+  {%
+    \trivlist
+    \item[\llap{%
+      \smash{%
+        \tabular[t]{@{}r|}
+%          \cellcolor[HTML]{000000}{\color[HTML]{FFFFFF}
+            \textbf{\Large \XSIMmixedcase{\GetExerciseName}~\GetExerciseProperty{counter}}
+%          }
+          \IfExercisePropertySetT{points}{%
+            \tabularnewline
+            {\small (%
+              \printgoal{\GetExerciseProperty{points}}%
+              \GetExercisePropertyT{bonus-points}{+\printgoal{#1}}%
+              \,\XSIMtranslate{point-abbr}%
+            )}%
+          }%
+          \IfExercisePropertySetT{tags}{%
+            \tabularnewline
+            {\scriptsize %
+              \ListExerciseTags{tags}{, }
+            }%
+          }%
+        \endtabular
+      }%
+    }]\relax
+  }
+  {%
+    \endtrivlist
+    \vspace{6pt}
+  }%
+
+  \DeclareExerciseEnvironmentTemplate{gedmargin-solution}
+  {%
+    \trivlist
+    \item[\llap{%
+      \smash{%
+        \tabular[t]{@{}r|}
+            \textbf{\large \XSIMmixedcase{\GetExerciseName}~\GetExerciseProperty{counter}}
+        \endtabular
+      }%
+    }]\relax
+    \footnotesize
+  }
+  {%
+  \endtrivlist
+  \vspace{6pt}
+}%
+
+\DeclareExerciseEnvironmentTemplate{gedsolution}
+  {%
+    \par\begin{flushright}
+      \footnotesize
+      \textit{\GetExerciseName} %    
+  }
+  {\end{flushright}\vspace{6pt}\par}

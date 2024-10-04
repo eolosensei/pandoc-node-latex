@@ -1,0 +1,70 @@
+# reader and writer
+from: markdown
+to: pdf
+data-dir: D:/DOCENCIA/banco-de-ejercicios/.pandoc-config
+resource-path: 
+- .
+- ${.}/media/
+
+# archivos de entrada y salida
+input-file:
+- ud1.3-enlace.md
+output-file: UD1.3 Enlace.pdf
+
+# template to use
+template: ged.pandoc.tex
+standalone: true
+self-contained: false
+
+# variables for document configuration
+variables:
+  debug: false
+  lang: es-ES
+  colorlinks: true
+  multicols: true
+  geometry:
+    - a4paper
+#    - twoside
+    - headheight=10mm
+    - headsep=10mm
+#    - scale=0.7
+#    - vscale=0.7
+    - top=30mm
+    - right=25mm
+#    - bindingoffset=10mm
+  fontfamily: FiraSans
+  fontfamilyoptions:
+    - sfdefault
+    - lining
+  xsim:
+    exercise:
+      print: true
+      template: gedmargin
+    solution:
+      print: false
+      template: gedsolution
+      name: 'Solución: '
+    endsolution: true
+  header-includes:
+    - \everymath{\displaystyle}
+  printed-date: false
+  
+# Filters will be assumed to be Lua filters if they have
+# the .lua extension, and json filters otherwise.  But
+# the filter type can also be specified explicitly, as shown.
+# Filters are run in the order specified.
+# To include the built-in citeproc filter, use either `citeproc`
+# or `{type: citeproc}`.
+filters:
+- center-image.lua
+- xsim-list.lua
+- chemformula.lua
+- siunitx.lua
+# - ./Lua-filters/multicol.lua
+
+# pdf engine configuration
+pdf-engine: lualatex
+pdf-engine-opts:
+- "-shell-escape"
+# you may also use pdf-engine-opt: with a single option
+# pdf-engine-opt: "-shell-escape"

@@ -1,0 +1,63 @@
+% SIUNITX PACKAGE %
+
+% Cargar siunitx
+\usepackage{siunitx}
+
+% Configuración general
+\sisetup{detect-all}
+
+\sisetup{
+    exponent-product        = \cdot,
+    per-mode                = reciprocal,
+    output-decimal-marker   = {,},
+    group-digits            = integer,
+    %text-celsius            = ^^b0\kern -\scriptspace C, % soluciona problemas con el símbolo de grados
+    %math-celsius            = ^^b0\kern -\scriptspace C,
+    list-final-separator    = { y },
+    list-pair-separator     = { y },
+    range-phrase            = { \translate{to (numerical range)} },
+    qualifier-mode          = brackets,
+    separate-uncertainty    = true,
+    multi-part-units        = single,
+    retain-explicit-plus    = true,
+}
+
+% Declaración de unidades propias
+\DeclareSIUnit\torr{torr}           % Presión (tradicional)
+\DeclareSIUnit\atm{atm}             % Presión
+\DeclareSIUnit\molar{M}             % Concentración molar
+\DeclareSIUnit\M{\molar}            % Concentración molar (alternativa)
+\DeclareSIUnit\cal{cal}             % Energía
+\DeclareSIUnit\kcal{\kilo\cal}           % Energía
+\DeclareSIUnit\mol{\mole}           % Cantidad de materia (en español)
+\DeclareSIUnit\uma{u}               % Masa atómica
+% Tiempo
+\DeclareSIUnit\h{\hour}             % Tiempo (abreviatura)
+\DeclareSIUnit\hora{\hour}          % Tiempo (en español)
+\DeclareSIUnit\min{\minute}         % Tiempo (abreviatura)  -- Podría dar problemas
+\DeclareSIUnit\minuto{\minute}      % Tiempo (en español)
+% Longitud
+\DeclareSIUnit\Tm{\tera\m}
+\DeclareSIUnit\Gm{\giga\m}
+\DeclareSIUnit\Mm{\mega\m}
+\DeclareSIUnit\hm{\hecto\m}
+\DeclareSIUnit\dam{\deca\m}
+% Masa
+\DeclareSIUnit\Tg{\tera\g}
+\DeclareSIUnit\Gg{\giga\g}
+\DeclareSIUnit\Mg{\mega\g}
+\DeclareSIUnit\hg{\hecto\g}
+\DeclareSIUnit\dag{\deca\g}
+\DeclareSIUnit\dg{\deci\g}
+\DeclareSIUnit\cg{\centi\g}
+% Volumen 
+\DeclareSIUnit\TL{\tera\L}
+\DeclareSIUnit\GL{\giga\L}
+\DeclareSIUnit\ML{\mega\L}
+\DeclareSIUnit\kL{\kilo\L}
+\DeclareSIUnit\daL{\deca\L}
+\DeclareSIUnit\dL{\deci\L}
+\DeclareSIUnit\cL{\centi\L}
+\DeclareSIUnit\nL{\nano\L}
+\DeclareSIUnit\pL{\pico\L}
+

@@ -1,0 +1,16 @@
+# Ignora archivos pdf y exe
+*.pdf
+*.exe
+*.doc
+*.docx
+
+# Ignora archivos vscode
+/.vscode
+/.vscode/*
+
+# Ignora la carpeta Otros
+/Otros
+/Otros/*
+otros.yaml
+/docs
+/docs/*

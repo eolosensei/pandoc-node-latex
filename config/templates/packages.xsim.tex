@@ -1,0 +1,24 @@
+% XSIM PACKAGE %
+
+% Carga xsim
+\usepackage[no-files]{xsim}
+
+% Carga el estilo que se va a usar
+\loadxsimstyle{ged}
+
+% Configuración general
+\xsimsetup{
+    % path                  = {xsim},
+    exercise/template     = {$if(xsim.exercise.template)$$xsim.exercise.template$$else$gedmargin$endif$},
+    exercise/name         = {$if(xsim.exercise.name)$$xsim.exercise.name$$else$$endif$},
+    exercise/print        = {$if(xsim.exercise.print)$$xsim.exercise.print$$else$false$endif$},
+    solution/template     = {$if(xsim.solution.template)$$xsim.solution.template$$else$gedsolution$endif$},
+    solution/name         = {$if(xsim.solution.name)$$xsim.solution.name$$else$Solución: $endif$},
+    solution/print        = {$if(xsim.solution.print)$$xsim.solution.print$$else$false$endif$},
+    % exercise/within       = section,
+    % exercise/the-counter  = \thesection.\arabic{exercise},
+}
+
+% xsim Exercise properties
+%\DeclareExerciseProperty{source} % para indicar de dónde saqué el ejercicio
+

@@ -1,0 +1,106 @@
+% MODIFICATIONS MADE BY ME
+
+%\usepackage[sfdefault,lining]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[fakebold]{firamath-otf}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\setmathfont{Fira Math}
+
+
+\usepackage{siunitx}
+\sisetup{detect-all}
+\input{D:/DOCENCIA/banco-de-ejercicios/.pandoc-config/latex/siunitx-local-units.tex}
+
+% Alternativa de configuración para expresar unidades como fracciones
+% en la forma mol/L (en lugar de con exponentes negativos)
+\sisetup{
+    per-mode                  = symbol,
+    per-symbol                = /,
+    bracket-unit-denominator  = true,
+}
+\usepackage{chemfig, chemformula}
+  \setchemfig{atom sep=2em}
+  \setchemformula{frac-style = nicefrac}
+\usepackage[no-files]{xsim}
+  \loadxsimstyle{ged}
+  \xsimsetup{
+    % path                  = {xsim},
+    exercise/template     = {$if(xsim.exercise.template)$$xsim.exercise.template$$else$gedmargin$endif$},
+    exercise/name         = {$if(xsim.exercise.name)$$xsim.exercise.name$$else$$endif$},
+    exercise/print        = {$if(xsim.exercise.print)$$xsim.exercise.print$$else$false$endif$},
+    solution/template     = {$if(xsim.solution.template)$$xsim.solution.template$$else$gedsolution$endif$},
+    solution/name         = {$if(xsim.solution.name)$$xsim.solution.name$$else$Solución: $endif$},
+    solution/print        = {$if(xsim.solution.print)$$xsim.solution.print$$else$false$endif$},
+    % exercise/within       = section,
+    % exercise/the-counter  = \thesection.\arabic{exercise},
+  }
+\usepackage{icomma}
+\usepackage[gen]{eurosym}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{tabularray}
+\pagestyle{fancy}
+
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+\renewcommand{\headwidth}{1.1\linewidth}
+\fancyheadoffset[LR]{0.1\linewidth}
+\fancyhead{
+
+  \begin{tblr}{
+%    width=1.2\linewidth,
+    colspec = {Q[c,h]l|X[c]|c|},
+    stretch = 0,
+    rowsep = 0pt,
+    column{1} = {colsep=0pt},
+    column{2} = {leftsep=0pt, font=\itshape},
+    rows = {font=\footnotesize},
+    hlines = {3-4}{0.5pt},
+%    vline{2-5} = {1pt},
+  }
+    \includegraphics{D:/DOCENCIA/banco-de-ejercicios/.pandoc-config/assets/logo_ies_luanco.jpg} & {Dpto. de \\ \emph{Física y Química}} & { {\normalsize $encabezado.titulo$} \\ $encabezado.subtitulo$} & {$encabezado.nivel$ \\ Curso 2023-24} \\
+  \end{tblr}
+}
+\renewcommand{\headrulewidth}{0pt}
+
+
+
+% Tikz & pgfplots
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usetikzlibrary{shapes.geometric}
+\pgfplotsset{posicion tiempo/.style={
+  xlabel={Tiempo [s]},
+  ylabel={Posición [m]},
+  width=4cm,
+  axis lines=left,
+  axis x line=middle,
+  xtick distance=2,
+  ytick distance=20,
+  %minor tick num=4,
+  grid=both,
+  grid style={solid,lightgray},
+  minor grid style={solid,very thin},
+  font=\scriptsize,
+  label style={font=\tiny}
+}}
+
+
+% END MODIFICATIONS
+
+
+% Definitions
+\newcommand{\entalpia}[1][]{\Delta _{#1} H\textdegree}
+\newcommand{\entalpiade}[2][]{\Delta _{#1} H\textdegree \left[\ch{#2}\right]}
+\newcommand{\entropia}[1][]{\Delta _{#1} S\textdegree}
+\newcommand{\entropiade}[2][]{\Delta _{#1} S\textdegree \left[\ch{#2}\right]}
+\newcommand{\Gibbs}[1][]{\Delta _{#1} G\textdegree}
+\newcommand{\Gibbsde}[2][]{\Delta _{#1} G\textdegree \left[\ch{#2}\right]}
+\newcommand{\conc}[2][]{[ \ch{#2} ]_{#1}}
+\newcommand{\pparcial}[1]{p_{\ch{#1}}}
+\newcommand{\potE}[2]{E\textdegree (\ch{#1}/\ch{#2})}
+
+% xsim Exercise properties
+%\DeclareExerciseProperty{source} % para indicar de dónde saqué el ejercicio
+
+% modificación de nodos de chemfig para utilizar fira math
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}

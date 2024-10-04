@@ -1,0 +1,36 @@
+% MODIFICATIONS MADE BY ME
+
+%\usepackage[sfdefault,lining]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[fakebold]{firamath-otf}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\setmathfont{Fira Math}
+
+
+${ packages.siunitx.tex() }
+${ packages.chemical.tex() }
+${ packages.xsim.tex() }
+${ packages.tikz.tex() }
+
+% Alternativa de configuración para expresar unidades como fracciones
+% en la forma mol/L (en lugar de con exponentes negativos)
+\sisetup{
+    per-mode                  = symbol,
+    per-symbol                = /,
+    bracket-unit-denominator  = true,
+}
+
+\usepackage{icomma}
+\usepackage[gen]{eurosym}
+\usepackage{multicol}
+\usepackage{tabularray}
+\usepackage{wrapfig2}
+
+
+% Configuración de la cabecera, en otro documento
+${ header.luanco.tex() }
+
+% END MODIFICATIONS
+
+
+% Definitions
+${ macro.definitions.tex() }

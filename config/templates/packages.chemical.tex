@@ -1,0 +1,10 @@
+% CHEMICAL PACKAGE %
+
+% Cargar paquetes chemfig y chemformula
+\usepackage{chemfig, chemformula}
+    \setchemfig{atom sep=2em}
+    \setchemformula{frac-style = nicefrac}
+
+% modificación de nodos de chemfig para utilizar fira math
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+
