@@ -1,18 +1,19 @@
 # reader and writer
 from: markdown
 to: pdf
-data-dir: D:/DOCENCIA/banco-de-ejercicios/.pandoc-config
+data-dir: D:/Programación/pandoc-node-latex/config
 resource-path: 
 - .
 - ${.}/media/
 
 # archivos de entrada y salida
 input-file:
-- 0.introducción.md
-- 1.composición.md
-- 2.puras.md
-- 3.mezclas.md
-- 4.disoluciones.md
+# - 0.introducción.md
+# - 1.composición.md
+# - 2.puras.md
+# - 3.mezclas.md
+# - 4.disoluciones.md
+  - 5.átomo.md
 output-file: T10-Materia.pdf
 
 # template to use
