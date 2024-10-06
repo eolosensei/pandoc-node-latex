@@ -1,23 +1,19 @@
 # reader and writer
 from: markdown
 to: pdf
-data-dir: /workspaces/pandoc-node-latex/config
+data-dir: D:/DOCENCIA/banco-de-ejercicios/.pandoc-config
 resource-path: 
 - .
 - ${.}/media/
 
 # archivos de entrada y salida
 input-file:
-# - 0.introducción.md
-# - 1.composición.md
-# - 2.puras.md
-# - 3.mezclas.md
-# - 4.disoluciones.md
-  - 5.átomo.md
-output-file: T10-Materia.pdf
+- SOL-3E-up1.F1-Factores.md
+output-file: SOL-3E-up1.F1-Factores.pdf
 
 # template to use
 template: ged.pandoc.tex
+reference-doc: D:/DOCENCIA/banco-de-ejercicios/.pandoc-config/templates/custom-reference.docx
 standalone: true
 self-contained: false
 
@@ -25,7 +21,6 @@ self-contained: false
 variables:
   debug: false
   lang: es-ES
-  toc: true
   colorlinks: true
   multicols: true
   geometry:
@@ -36,7 +31,7 @@ variables:
 #    - scale=0.7
 #    - vscale=0.7
     - top=30mm
-#    - left=30mm
+    - right=25mm
 #    - bindingoffset=10mm
   fontfamily: FiraSans
   fontfamilyoptions:
@@ -47,10 +42,10 @@ variables:
       print: true
       template: gedmargin
     solution:
-      print: false
+      print: true
       template: gedsolution
-      name: 'Solución: '
-    endsolution: true
+      name: 'Autoevaluación: '
+    endsolution: false
   header-includes:
     - \everymath{\displaystyle}
   printed-date: false
@@ -62,10 +57,12 @@ variables:
 # To include the built-in citeproc filter, use either `citeproc`
 # or `{type: citeproc}`.
 filters:
-- center-image.lua
+- wrapfig.lua
+#- center-image.lua
 - xsim-list.lua
 - chemformula.lua
 - siunitx.lua
+
 # - ./Lua-filters/multicol.lua
 
 # pdf engine configuration

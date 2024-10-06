@@ -1,0 +1,537 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  spanish,
+]{article}
+\usepackage[sfdefault,lining]{FiraSans}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdflang={es-ES},
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[a4paper,headheight=10mm,headsep=10mm,top=30mm,right=25mm]{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\everymath{\displaystyle}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{}
+\else
+  \usepackage[shorthands=off,main=spanish]{babel}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+
+% % MODIFICATIONS MADE BY ME
+
+% MODIFICATIONS MADE BY ME
+
+%\usepackage[sfdefault,lining]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[fakebold]{firamath-otf}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\setmathfont{Fira Math}
+
+
+% SIUNITX PACKAGE %
+
+% Cargar siunitx
+\usepackage{siunitx}
+
+% Configuración general
+\sisetup{detect-all}
+
+\sisetup{
+    exponent-product        = \cdot,
+    per-mode                = reciprocal,
+    output-decimal-marker   = {,},
+    group-digits            = integer,
+    %text-celsius            = ^^b0\kern -\scriptspace C, % soluciona problemas con el símbolo de grados
+    %math-celsius            = ^^b0\kern -\scriptspace C,
+    list-final-separator    = { y },
+    list-pair-separator     = { y },
+    range-phrase            = { \translate{to (numerical range)} },
+    qualifier-mode          = brackets,
+    separate-uncertainty    = true,
+    multi-part-units        = single,
+    retain-explicit-plus    = true,
+}
+
+% Declaración de unidades propias
+\DeclareSIUnit\torr{torr}           % Presión (tradicional)
+\DeclareSIUnit\atm{atm}             % Presión
+\DeclareSIUnit\molar{M}             % Concentración molar
+\DeclareSIUnit\M{\molar}            % Concentración molar (alternativa)
+\DeclareSIUnit\kcal{kcal}           % Energía
+\DeclareSIUnit\cal{cal}             % Energía    
+\DeclareSIUnit\mol{\mole}           % Cantidad de materia (en español)
+\DeclareSIUnit\uma{u}               % Masa atómica
+\DeclareSIUnit\h{\hour}             % Tiempo (abreviatura)
+\DeclareSIUnit\hora{\hour}          % Tiempo (en español)
+\DeclareSIUnit\min{\minute}         % Tiempo (abreviatura)  -- Podría dar problemas
+\DeclareSIUnit\minuto{\minute}      % Tiempo (en español)
+\DeclareSIUnit\Gm{\giga\m}          % Longitud
+\DeclareSIUnit\Mm{\mega\m}          % Longitud
+\DeclareSIUnit\hm{\hecto\m}         % Longitud
+\DeclareSIUnit\cg{\centi\g}         % Longitud
+\DeclareSIUnit\dam{\deca\m}         % Longitud
+\DeclareSIUnit\dg{\deci\g}          % Masa
+\DeclareSIUnit\hg{\hecto\g}         % Masa
+% CHEMICAL PACKAGE %
+
+% Cargar paquetes chemfig y chemformula
+\usepackage{chemfig, chemformula}
+    \setchemfig{atom sep=2em}
+    \setchemformula{frac-style = nicefrac}
+
+% modificación de nodos de chemfig para utilizar fira math
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+% XSIM PACKAGE %
+
+% Carga xsim
+\usepackage[no-files]{xsim}
+
+% Carga el estilo que se va a usar
+\loadxsimstyle{ged}
+
+% Configuración general
+\xsimsetup{
+    % path                  = {xsim},
+    exercise/template     = {gedmargin},
+    exercise/name         = {},
+    exercise/print        = {true},
+    solution/template     = {gedsolution},
+    solution/name         = {Autoevaluación: },
+    solution/print        = {true},
+    % exercise/within       = section,
+    % exercise/the-counter  = \thesection.\arabic{exercise},
+}
+
+% xsim Exercise properties
+%\DeclareExerciseProperty{source} % para indicar de dónde saqué el ejercicio
+% TIKZ PACKAGE %
+
+% Comandos para cargar tikz y pgfplots
+\usepackage{tikz, pgfplots}
+
+% Librerías adicionales que va a usar tikz
+\usetikzlibrary{
+  shapes.geometric,
+  positioning,
+  arrows.meta}
+
+% Configuración general de pgfplots
+\pgfplotsset{compat=1.9}
+
+
+% Definición de estilos propios para pgfplots
+
+\pgfplotsset{
+  posicion tiempo/.style={
+    xlabel={Tiempo [s]},
+    ylabel={Posición [m]},
+    width=4cm,
+    axis lines=left,
+    axis x line=middle,
+    xtick distance=2,
+    ytick distance=20,
+    %minor tick num=4,
+    grid=both,
+    grid style={solid,lightgray},
+    minor grid style={solid,very thin},
+    font=\scriptsize,
+    label style={font=\tiny}
+}}
+
+% Alternativa de configuración para expresar unidades como fracciones
+% en la forma mol/L (en lugar de con exponentes negativos)
+\sisetup{
+    per-mode                  = symbol,
+    per-symbol                = /,
+    bracket-unit-denominator  = true,
+}
+
+\usepackage{icomma}
+\usepackage[gen]{eurosym}
+\usepackage{multicol}
+\usepackage{tabularray}
+\usepackage{wrapfig2}
+
+
+% Configuración de la cabecera, en otro documento
+% Header LUANCO (PACKAGE FANCYHDR) %
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+%\renewcommand{\headwidth}{1.1\linewidth}
+%\fancyheadoffset[LR]{0.1\linewidth}
+\fancyhead{
+
+  \begin{tblr}{
+    % width=1.2\linewidth,
+    colspec = {Q[c,h]lX[r]},
+    stretch = 0,
+    rowsep = 0pt,
+    column{1} = {colsep=0pt},
+    column{2} = {leftsep=10pt, font=\itshape},
+    rows = {font=\footnotesize},
+    % hlines = {3-4}{0.5pt},
+    % vline{2-5} = {1pt},
+  }
+    \includegraphics[height=1.2cm]{D:/DOCENCIA/banco-de-ejercicios/.pandoc-config/assets/logo_ies_luanco.jpg} & {\emph{Dpto. de} \\ \emph{Física y Química}} & { {\normalsize  - } \\  - Curso 2024-25} \\
+  \end{tblr}
+}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyfoot[C]{\sffamily\fontsize{9pt}{9pt}\selectfont\thepage}
+
+% END MODIFICATIONS
+
+
+% Definitions
+% DEFINICIÓN DE MACROS PROPIAS
+
+% Entalpía estándar
+\newcommand{\entalpia}[1][]{\Delta _{#1} H\textdegree}
+\newcommand{\entalpiade}[2][]{\Delta _{#1} H\textdegree \left[\ch{#2}\right]}
+
+% Entropía estándar
+\newcommand{\entropia}[1][]{\Delta _{#1} S\textdegree}
+\newcommand{\entropiade}[2][]{\Delta _{#1} S\textdegree \left[\ch{#2}\right]}
+
+% Energía libre de Gibbs estándar
+\newcommand{\Gibbs}[1][]{\Delta _{#1} G\textdegree}
+\newcommand{\Gibbsde}[2][]{\Delta _{#1} G\textdegree \left[\ch{#2}\right]}
+
+% Concentración
+\newcommand{\conc}[2][]{[ \ch{#2} ]_{#1}}
+
+% Presión parcial
+\newcommand{\pparcial}[1]{p_{\ch{#1}}}
+
+% Potencial de pila estándar / potencial de reducción estándar
+\newcommand{\potE}[2]{E\textdegree (\ch{#1}/\ch{#2})}
+
+% % END MODIFICATIONS
+
+\begin{document}
+
+\hypertarget{el-modelo-de-dalton}{%
+\section{El modelo de Dalton}\label{el-modelo-de-dalton}}
+
+A finales del siglo XVIII y comienzos del XIX, científicos como
+Lavoisier, Proust y Dalton investigaron la conservación de la masa y la
+relación entre las masas de las sustancias que intervienen en una
+reacción química. Para explicar los resultados experimentales que
+obtuvieron, en 1808 J. Dalton (1766-1844) publicó una serie de
+enunciados, también llamados postulados, que completaban la que hoy
+conocemos como teoría atómica de Dalton, que es la primera teoría
+atómica basada en datos científicos.
+
+Los postulados de Dalton se pueden resumir así:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  La materia está formada por átomos indivisibles.
+\item
+  Cada elemento está formado por átomos iguales: tienen la misma masa y
+  las mismas propiedades químicas.
+\item
+  Los átomos de distintos elementos tienen masas y propiedades químicas
+  diferentes.
+\item
+  En las reacciones químicas, los átomos ni se crean ni se destruyen,
+  solo cambian su distribución en las sustancias.
+\item
+  Los átomos de diferentes elementos se combinan para dar compuestos
+  químicos, y lo hacen siempre en una proporción fija para cada tipo de
+  compuesto posible.
+\end{enumerate}
+
+En sus postulados, Dalton establece que la materia no es continua, sino
+de naturaleza corpuscular, y establece la diferencia entre elemento y
+compuesto.
+
+\hypertarget{el-modelo-atuxf3mico-de-thomson}{%
+\section{El modelo atómico de
+Thomson}\label{el-modelo-atuxf3mico-de-thomson}}
+
+En 1904, J. J. Thomson idea un modelo atómico en el que el átomo es una
+especie de esfera de carga positiva continua y esponjosa que contiene
+casi toda la masa. Los electrones están incrustados en ella de forma
+similar a como lo están las pasas en un bizcocho; por eso, se llamó el
+``pudin de pasas''. Actualmente, sería más fácil hacer un símil con una
+magdalena rellena de chips de chocolate.
+\includegraphics[width=0.75\textwidth,height=\textheight]{FQ 3E 2015 SM Química-p76c.png}
+
+Al incluir los electrones, este modelo explica los fenómenos de
+electrización mediante la ganancia o pérdida de electrones: los átomos
+pueden perder o ganar electrones, obteniendo una carga positiva (si
+pierden electrones) o negativa (si ganan electrones).
+
+\hypertarget{el-modelo-atuxf3mico-de-rutherford}{%
+\section{El modelo atómico de
+Rutherford}\label{el-modelo-atuxf3mico-de-rutherford}}
+
+En 1909, E. Rutherford (1871-1937) y sus colaboradores, H. Geiger
+(1882-1945) y E. Marsden (1889-1970), realizaron un experimento
+revolucionario. Bombardearon una lámina de oro muy fina con partículas
+cargadas positivamente que se desplazaban a gran velocidad.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{FQ 3E OXF 2015 Química-p67a.png}
+\caption{Esquema del experimento de Rutherford}
+\end{figure}
+
+Como se observa en el dibujo, y de acuerdo con el modelo atómico de
+Thomson, lo que tendría que haber ocurrido es que las partículas
+positivas hubieran atravesado la lámina sin ser apreciablemente
+desviadas de su trayectoria rectilínea. Sin embargo, este fue el
+resultado del experimento:
+
+\begin{itemize}
+\tightlist
+\item
+  La mayor parte de las partículas atravesaron la finísima lámina de oro
+  sin cambiar la dirección (como era de esperar).
+\item
+  Algunas se desviaron considerablemente.
+\item
+  Sorprendentemente, algunas partículas rebotaron hacia la fuente de
+  emisión.
+\end{itemize}
+
+Tras estos inesperados resultados, Rutherford llegó a las siguientes
+conclusiones: - El hecho de que las partículas positivas que se dirigen
+a gran velocidad hacia la lámina de oro la atraviesen sin desviarse
+indica que el átomo es, en su mayor parte, espacio vacío. - El hecho de
+que algunas partículas positivas procedentes de la fuente se desvíen
+indica que han pasado cerca de una zona del átomo que también tiene
+carga positiva y las ha repelido. - El hecho de que algunas partículas
+positivas reboten hacia la fuente emisora indica que existen choques
+directos contra una zona del átomo muy densa y fuertemente positiva, que
+denominó núcleo atómico.
+
+Rutherford pensaba que existía cierto parecido entre la estructura del
+sistema solar y la del átomo, donde los electrones serían los planetas y
+el núcleo, el Sol. Supuso que, igual que los planetas giran alrededor
+del Sol, los electrones deberían hacerlo alrededor del núcleo. Por ello,
+describió el átomo con dos zonas bien diferenciadas:
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{FQ 3E 2015 SM Química-p77c.png}
+\caption{Modelo de Rutherford}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Una zona central del átomo muy pequeña, muy densa y cargada
+  positivamente, pues es donde se encuentran los protones, a la que
+  llamó \textbf{núcleo}.
+\item
+  Una zona periférica en la que los electrones, cargados negativamente,
+  giran alrededor del núcleo y a cierta distancia del él, a la que llamó
+  \textbf{corteza}.
+\end{itemize}
+
+De este modo, los resultados del experimento de Rutherford se explicaban
+de una forma muy sencilla: las partículas positivas que pasaban cerca
+del núcleo se desvían mucho de su trayectoria rectilínea, debido a la
+repulsión entre cargas positivas. Aquellas partículas que chocaban
+directamente contra el núcleo rebotan en la dirección de la que
+proceden. Y las partículas que pasan alejadas del núcleo no se desvían.
+Como la mayoría de las partículas del experimento no se desviaron,
+Rutherford concluyó que la corteza y el núcleo estaban separados por un
+enorme \textbf{espacio vacío} (enorme respecto al tamaño del núcleo).
+
+\hypertarget{la-naturaleza-eluxe9ctrica-de-la-materia}{%
+\section{La naturaleza eléctrica de la
+materia}\label{la-naturaleza-eluxe9ctrica-de-la-materia}}
+
+En el siglo VI a. C., Tales de Mileto había explicado que frotando un
+paño de lana con un trozo de ámbar, ambos materiales son capaces de
+atraer materiales muy ligeros, como plumas o cabellos. Este fenómeno se
+denominó electricidad (\emph{elektron} significa «ámbar» en griego).
+Posteriormente, Cisternay du Fay (1698-1739) y Benjamin Franklin
+(1706-1790) describieron la existencia de dos tipos de cargas eléctricas
+y estudiaron los fenómenos de electrización.
+
+Los fenómenos de electrización y los relacionados con la corriente
+eléctrica se investigaron a fondo a finales del siglo XIX, poniendo de
+manifiesto que el átomo es divisible y que está formado por partículas
+más pequeñas que tienen carga eléctrica.
+
+A finales del siglo XIX y comienzos del XX, varios científicos
+realizaron diferentes experimentos con tubos de vidrio, como el del
+dibujo, que contenían un gas a baja presión al que se sometía a
+descargas eléctricas de alto voltaje.
+
+Estas experiencias permitieron a J. J. Thomson (1856-1940) identificar
+la partícula responsable de la carga eléctrica negativa, el electrón, y
+a E. Goldstein (1860-1930), la partícula responsable de la carga
+eléctrica positiva, el protón. Con estos experimentos, ambos científicos
+pudieron calcular el valor de la carga eléctrica y la masa de ambas
+partículas.
+
+Sin embargo, algo no encajaba: la suma de la masa de los protones más la
+de los electrones era más pequeña que la masa del átomo en su conjunto.
+Esto hizo a los plantearse que podía existir algo más: una partícula con
+masa, pero sin carga eléctrica.
+
+En 1932, J. Chadwick (1891-1974) bombardeó una lámina de berilio con
+partículas positivas y observó que emitía una radiación de gran energía.
+Posteriormente, demostró que esa radiación estaba formada por unas
+partículas eléctricamente neutras, que denominó neutrones, cuya masa era
+un poco mayor que la del protón. Con ello, todas las partículas
+subatómicas estaban al descubierto:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2133}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2267}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2400}}
+  >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3200}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Partícula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Carga
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Masa
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Descubrimiento
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Electrón & \qty{-1.602e-19}{\C} & \qty{9.109e-31}{\kg} & J. J. Thomson,
+1897 \\
+Protón & \qty{1.602e-19}{\C} & \qty{1.673e-27}{\kg} & E. Goldstein,
+1886 \\
+Neutrón & 0 & \qty{1.6749e-27}{\kg} & J. Chadwick, 1932 \\
+\end{longtable}
+
+La carga del electrón es la más pequeña que existe, y por eso recibe el
+nombre de carga eléctrica elemental. Observa que, si no tenemos en
+cuenta el signo, la carga del electrón es la misma que la del protón.
+Por tanto, podemos afirmar que en un cuerpo eléctricamente neutro el
+número de electrones debe ser igual al número de protones.
+
+\hypertarget{los-nuevos-modelos-atuxf3micos}{%
+\section{Los nuevos modelos
+atómicos}\label{los-nuevos-modelos-atuxf3micos}}
+
+Según el modelo del átomo nuclear o planetario, los electrones giran a
+gran velocidad en torno al núcleo sin que sepamos a qué distancia de él
+se encuentran. Sin embargo, es un hecho conocido que cualquier carga
+eléctrica que gire debe emitir energía en forma de radiación. Si esto
+sucediera, el electrón iría perdiendo energía y se acercaría cada vez
+más al núcleo describiendo una trayectoria espiral, y acabaría cayendo
+sobre él.
+
+En 1913, Niels Bohr (1885-1962) modificó el modelo atómico de Rutherford
+mediante los siguientes postulados:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  El electrón solo se mueve en unas órbitas circulares, sin que exista
+  emisión de energía. El electrón, dependiendo de la órbita en la que se
+  encuentre, tiene una determinada energía, que es tanto mayor cuanto
+  más alejada está la órbita del núcleo.
+\item
+  La emisión de energía solo se produce cuando un electrón salta de un
+  nivel energético (órbita) de mayor energía a otro de menor energía.
+\end{enumerate}
+
+A partir de 1916 se desarrollaron otros modelos atómicos para tratar de
+explicar las propiedades químicas de los elementos. Así, los científicos
+llegaron a la conclusión de que los electrones están distribuidos en
+niveles y subniveles de energía que admiten un número máximo de
+electrones. La distribución por niveles de los electrones de un átomo de
+un elemento recibe el nombre de configuración electrónica del elemento.
+Los electrones situados en el último nivel energético de un átomo se
+denominan electrones de valencia, y son los responsables de las
+propiedades químicas de las sustancias, como veremos en la próxima
+unidad.
+
+
+
+\end{document}

@@ -1,0 +1,329 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[
+  spanish,
+]{article}
+\usepackage[sfdefault,lining]{FiraSans}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdflang={es-ES},
+  colorlinks=true,
+  linkcolor=Maroon,
+  filecolor=Maroon,
+  citecolor=Blue,
+  urlcolor=Blue,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[a4paper,headheight=10mm,headsep=10mm,top=30mm,right=25mm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\everymath{\displaystyle}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{}
+\else
+  \usepackage[shorthands=off,main=spanish]{babel}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+
+% % MODIFICATIONS MADE BY ME
+
+% MODIFICATIONS MADE BY ME
+
+%\usepackage[sfdefault,lining]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[fakebold]{firamath-otf}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\setmathfont{Fira Math}
+
+
+% SIUNITX PACKAGE %
+
+% Cargar siunitx
+\usepackage{siunitx}
+
+% Configuración general
+\sisetup{detect-all}
+
+\sisetup{
+    exponent-product        = \cdot,
+    per-mode                = reciprocal,
+    output-decimal-marker   = {,},
+    group-digits            = integer,
+    %text-celsius            = ^^b0\kern -\scriptspace C, % soluciona problemas con el símbolo de grados
+    %math-celsius            = ^^b0\kern -\scriptspace C,
+    list-final-separator    = { y },
+    list-pair-separator     = { y },
+    range-phrase            = { \translate{to (numerical range)} },
+    qualifier-mode          = brackets,
+    separate-uncertainty    = true,
+    multi-part-units        = single,
+    retain-explicit-plus    = true,
+}
+
+% Declaración de unidades propias
+\DeclareSIUnit\torr{torr}           % Presión (tradicional)
+\DeclareSIUnit\atm{atm}             % Presión
+\DeclareSIUnit\molar{M}             % Concentración molar
+\DeclareSIUnit\M{\molar}            % Concentración molar (alternativa)
+\DeclareSIUnit\kcal{kcal}           % Energía
+\DeclareSIUnit\cal{cal}             % Energía    
+\DeclareSIUnit\mol{\mole}           % Cantidad de materia (en español)
+\DeclareSIUnit\uma{u}               % Masa atómica
+\DeclareSIUnit\h{\hour}             % Tiempo (abreviatura)
+\DeclareSIUnit\hora{\hour}          % Tiempo (en español)
+\DeclareSIUnit\min{\minute}         % Tiempo (abreviatura)  -- Podría dar problemas
+\DeclareSIUnit\minuto{\minute}      % Tiempo (en español)
+\DeclareSIUnit\Gm{\giga\m}          % Longitud
+\DeclareSIUnit\Mm{\mega\m}          % Longitud
+\DeclareSIUnit\hm{\hecto\m}         % Longitud
+\DeclareSIUnit\cg{\centi\g}         % Longitud
+\DeclareSIUnit\dam{\deca\m}         % Longitud
+\DeclareSIUnit\dg{\deci\g}          % Masa
+\DeclareSIUnit\hg{\hecto\g}         % Masa
+% CHEMICAL PACKAGE %
+
+% Cargar paquetes chemfig y chemformula
+\usepackage{chemfig, chemformula}
+    \setchemfig{atom sep=2em}
+    \setchemformula{frac-style = nicefrac}
+
+% modificación de nodos de chemfig para utilizar fira math
+\renewcommand*\printatom[1]{\ensuremath{\mathsf{#1}}}
+% XSIM PACKAGE %
+
+% Carga xsim
+\usepackage[no-files]{xsim}
+
+% Carga el estilo que se va a usar
+\loadxsimstyle{ged}
+
+% Configuración general
+\xsimsetup{
+    % path                  = {xsim},
+    exercise/template     = {gedmargin},
+    exercise/name         = {},
+    exercise/print        = {true},
+    solution/template     = {gedsolution},
+    solution/name         = {Autoevaluación: },
+    solution/print        = {true},
+    % exercise/within       = section,
+    % exercise/the-counter  = \thesection.\arabic{exercise},
+}
+
+% xsim Exercise properties
+%\DeclareExerciseProperty{source} % para indicar de dónde saqué el ejercicio
+% TIKZ PACKAGE %
+
+% Comandos para cargar tikz y pgfplots
+\usepackage{tikz, pgfplots}
+
+% Librerías adicionales que va a usar tikz
+\usetikzlibrary{
+  shapes.geometric,
+  positioning,
+  arrows.meta}
+
+% Configuración general de pgfplots
+\pgfplotsset{compat=1.9}
+
+
+% Definición de estilos propios para pgfplots
+
+\pgfplotsset{
+  posicion tiempo/.style={
+    xlabel={Tiempo [s]},
+    ylabel={Posición [m]},
+    width=4cm,
+    axis lines=left,
+    axis x line=middle,
+    xtick distance=2,
+    ytick distance=20,
+    %minor tick num=4,
+    grid=both,
+    grid style={solid,lightgray},
+    minor grid style={solid,very thin},
+    font=\scriptsize,
+    label style={font=\tiny}
+}}
+
+% Alternativa de configuración para expresar unidades como fracciones
+% en la forma mol/L (en lugar de con exponentes negativos)
+\sisetup{
+    per-mode                  = symbol,
+    per-symbol                = /,
+    bracket-unit-denominator  = true,
+}
+
+\usepackage{icomma}
+\usepackage[gen]{eurosym}
+\usepackage{multicol}
+\usepackage{tabularray}
+\usepackage{wrapfig2}
+
+
+% Configuración de la cabecera, en otro documento
+% Header LUANCO (PACKAGE FANCYHDR) %
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+%\addtolength{\headwidth}{\marginparsep}
+%\addtolength{\headwidth}{\marginparwidth}
+%\renewcommand{\headwidth}{1.1\linewidth}
+%\fancyheadoffset[LR]{0.1\linewidth}
+\fancyhead{
+
+  \begin{tblr}{
+    % width=1.2\linewidth,
+    colspec = {Q[c,h]lX[r]},
+    stretch = 0,
+    rowsep = 0pt,
+    column{1} = {colsep=0pt},
+    column{2} = {leftsep=10pt, font=\itshape},
+    rows = {font=\footnotesize},
+    % hlines = {3-4}{0.5pt},
+    % vline{2-5} = {1pt},
+  }
+    \includegraphics[height=1.2cm]{D:/DOCENCIA/banco-de-ejercicios/.pandoc-config/assets/logo_ies_luanco.jpg} & {\emph{Dpto. de} \\ \emph{Física y Química}} & { {\normalsize  - } \\  - Curso 2024-25} \\
+  \end{tblr}
+}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyfoot[C]{\sffamily\fontsize{9pt}{9pt}\selectfont\thepage}
+
+% END MODIFICATIONS
+
+
+% Definitions
+% DEFINICIÓN DE MACROS PROPIAS
+
+% Entalpía estándar
+\newcommand{\entalpia}[1][]{\Delta _{#1} H\textdegree}
+\newcommand{\entalpiade}[2][]{\Delta _{#1} H\textdegree \left[\ch{#2}\right]}
+
+% Entropía estándar
+\newcommand{\entropia}[1][]{\Delta _{#1} S\textdegree}
+\newcommand{\entropiade}[2][]{\Delta _{#1} S\textdegree \left[\ch{#2}\right]}
+
+% Energía libre de Gibbs estándar
+\newcommand{\Gibbs}[1][]{\Delta _{#1} G\textdegree}
+\newcommand{\Gibbsde}[2][]{\Delta _{#1} G\textdegree \left[\ch{#2}\right]}
+
+% Concentración
+\newcommand{\conc}[2][]{[ \ch{#2} ]_{#1}}
+
+% Presión parcial
+\newcommand{\pparcial}[1]{p_{\ch{#1}}}
+
+% Potencial de pila estándar / potencial de reducción estándar
+\newcommand{\potE}[2]{E\textdegree (\ch{#1}/\ch{#2})}
+
+% % END MODIFICATIONS
+
+\begin{document}
+
+\begin{exercise}Realiza los siguientes cambios de unidades usando
+factores de conversión y escribiendo el resultado en notación
+científica.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  \(\qty{8,9}{\dm} \cdot \frac{\qty{1}{\dam}}{\qty{100}{\dm}} = \frac{8,9 \cdot 1}{100} \unit{\dam} = \qty{8.9e-2}{\dam}\)
+\item
+  \(\qty{0,84}{\cm} \cdot \frac{\qty{e4}{\um}}{\qty{1}{\cm}} = \frac{0,84 \cdot 10^4}{1} \unit{\um}= \qty{8400}{\um} = \qty{8.4e3}{\um}\)
+\item
+  \(\qty{34}{\dg} \cdot \frac{\qty{1}{\kg}}{10^4 \unit{\dg}} = \frac{34 \cdot 1}{10^4} \unit{\kg} = \qty{0.0034}{\kg} = \qty{3.4e-3}{\kg}\)
+\item
+  \(\qty{8,9}{\Mm} \cdot \frac{10^5 \unit{\dam}}{\qty{1}{\Mm}} = \frac{8,9 \cdot 10^5}{1} = \qty{890000}{\dam} = \qty{8.9e5}{\dam}\)
+\item
+  \(76\text{ días} \cdot \frac{\qty{24}{\h}}{1\text{ día}} \frac{\qty{3600}{\s}}{\qty{1}{\h}} = \frac{76 \cdot 24 \cdot 3600}{1} \unit{\s}= \qty{6566400}{\s} = \qty{6.57e6}{\s}\)
+\item
+  \(\qty{5432}{\s} \cdot \frac{\qty{1}{\h}}{\qty{3600}{\s}} = \frac{5432 \cdot 1}{3600} \unit{\h} = \qty{1,509}{\h}\)
+\item
+  \(3\text{ años} \cdot \frac{365\text{ días}}{1\text{ año}} \frac{\qty{24}{\h}}{1\text{ día}} \frac{\qty{60}{\min}}{\qty{1}{\h}} = \frac{3 \cdot 365 \cdot 24 \cdot 60}{1} \unit{\min} = \qty{1576800}{\min} = \qty{1.577e6}{\min}\)
+\item
+  \(\qty{789}{\mm} \cdot \frac{10^6 \unit{\nm}}{\qty{1}{\Gm}} = \frac{789 \cdot 10^6}{1} \unit{\nm}= \qty{789000000}{\nm} = \qty{7.89e8}{\nm}\)
+\item
+  \(\qty{45}{\Gm} \cdot \frac{10^6 \unit{\km}}{\qty{1}{\Gm}} = \frac{45 \cdot 10^6}{1} \unit{\km} = \qty{45000000}{\km} = \qty{4.5e7}{\km}\)
+\item
+  \(\qty{9,1}{\ug} \cdot \frac{\qty{1}{\mg}}{10^3 \unit{\ug}} = \frac{9,1 \cdot 1}{10^3} \unit{\mg} = \qty{0.0091}{\mg} = \qty{9.1e-3}{\mg}\)
+\end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}Realiza los siguientes cambios de unidades usando
+factores de conversión y escribiendo el resultado en notación
+científica.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  \(\qty{71}{\m} \cdot \frac{\qty{100}{\cm}}{\qty{1}{\m}} = \frac{71 \cdot 100}{1} \unit{\cm} = \qty{7100}{\cm} = \qty{7.1e3}{\cm}\)
+\item
+  \(\qty{8,9}{\dam} \cdot \frac{\qty{100}{\dm}}{\qty{1}{\dam}} = \frac{8.9 \cdot 100}{1} \unit{\dm} = \qty{890}{\dm} = \qty{8.9e2}{\dm}\)
+\item
+  \(\qty{0,841}{\mm} \cdot \frac{10^3 \unit{\um}}{\qty{1}{\dm}} = \frac{0,841 \cdot 10^3}{1} \unit{\um} = \qty{841}{\um} = \qty{8.41e2}{\um}\)
+\item
+  \(\qty{78,9}{\dm} \cdot \frac{10^8 \unit{\nm}}{\qty{1}{\dm}} = \frac{78,9 \cdot 10^8}{1} \unit{\nm} = \qty{7890000000}{\nm} = \qty{7.89e9}{\nm}\)
+\item
+  \(\qty{34}{\min} \cdot \frac{\qty{60}{\s}}{\qty{1}{\min}} = \frac{34 \cdot 60}{1} \unit{\s} = \qty{2040}{\s} = \qty{2.04e3}{\s}\)
+\item
+  \(\qty{5}{\Mm} \cdot \frac{10^4 \unit{\hm}}{\qty{1}{\Mm}} = \frac{5 \cdot 10^4}{1} \unit{\hm} = \qty{50000}{\hm} = \qty{5e4}{\hm}\)
+\item
+  \(\qty{8,9}{\Gm} \cdot \frac{10^6 \unit{\km}}{\qty{1}{\Gm}} = \frac{8,9 \cdot 10^6}{1} \unit{\Gm} = \qty{8900000}{\Gm} = \qty{8.9e6}{\Gm}\)
+\item
+  \(\qty{8,7}{\hg} \cdot \frac{10^4 \unit{\cg}}{\qty{1}{\hg}} = \frac{8.7 \cdot 10^4}{1} \unit{\cg} = \qty{87000}{\cg} = \qty{8.7e4}{\cg}\)
+\item
+  \(\qty{49}{\kg} \cdot \frac{10^5 \unit{\cg}}{\qty{1}{\kg}} = \frac{49 \cdot 10^5}{1} \unit{\cg} = \qty{4900000}{\cg} = \qty{4.9e6}{\cg}\)
+\item
+  \(\qty{9,1}{\mg} \cdot \frac{10^3 \unit{\ug}}{\qty{1}{\mg}} = \frac{9,1 \cdot 10^3}{1} \unit{\ug} = \qty{9100}{\ug} = \qty{9.1e3}{\ug}\)
+\end{enumerate}
+
+\end{exercise}
+
+
+
+\end{document}

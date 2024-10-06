@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{
+    compat=1.18,
+    %width=5cm,
+    mygraph/.style={
+        small,
+        xmin=0, xmax=20,
+        ymin=0, ymax=50,
+        axis lines=left,
+        axis line style={thick},
+        xtick distance=5,
+        ytick distance=10,
+        grid=major,
+        grid style={solid,gray},
+        width=6cm
+    }
+    }
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[mygraph,
+        title={Gráfica A},
+        xlabel={Tiempo [s]},
+        ylabel={Posición [m]},]
+        \addplot[
+            color=red,
+            style=ultra thick,
+            domain=0:30,
+        ] {40 - 1.8*x};
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[mygraph,
+        title={Gráfica D},
+        xlabel={Tiempo [s]},
+        ylabel={Velocidad [m/s]},]
+        \addplot[
+            color=red,
+            style=ultra thick,
+            domain=0:20,
+        ] {43};
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[mygraph,
+        title={Gráfica C},
+        xlabel={Tiempo [s]},
+        ylabel={Posición [m]},]
+        \addplot[
+            color=red,
+            style=ultra thick,
+            domain=0:30,
+        ] {5 + 0.15*x^2};
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[mygraph,
+        title={Gráfica B},
+        xlabel={Tiempo [s]},
+        ylabel={Velocidad [m/s]},]
+        \addplot[
+            color=red,
+            style=ultra thick,
+            domain=0:30,
+        ] {2.1*x};
+    \end{axis}
+\end{tikzpicture}
+\end{document}
