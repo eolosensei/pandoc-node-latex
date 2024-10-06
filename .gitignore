@@ -3,6 +3,9 @@
 *.exe
 *.doc
 *.docx
+*.tex
+*.log
+*.aux
 
 # Ignora archivos vscode
 /.vscode
