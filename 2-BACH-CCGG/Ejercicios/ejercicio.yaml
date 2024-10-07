@@ -8,8 +8,8 @@ resource-path:
 
 # archivos de entrada y salida
 input-file:
-- ud1.3-enlace.md
-output-file: UD1.3 Enlace.pdf
+- ud1.4-gases.md
+output-file: UD1.4 Gases.pdf
 
 # template to use
 template: ged.pandoc.tex

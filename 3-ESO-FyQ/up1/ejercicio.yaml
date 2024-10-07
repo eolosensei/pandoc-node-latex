@@ -8,8 +8,8 @@ resource-path:
 
 # archivos de entrada y salida
 input-file:
-- SOL-3E-up1.F1-Factores.md
-output-file: SOL-3E-up1.F1-Factores.pdf
+- ACT-3E-up1.F3-Átomos.md
+output-file: SOL-3E-up1.F3-Átomos.pdf
 
 # template to use
 template: ged.pandoc.tex
@@ -39,12 +39,12 @@ variables:
     - lining
   xsim:
     exercise:
-      print: true
+      print: false
       template: gedmargin
     solution:
       print: true
-      template: gedsolution
-      name: 'Autoevaluación: '
+      template: gedmargin
+      name: 'S'
     endsolution: false
   header-includes:
     - \everymath{\displaystyle}
