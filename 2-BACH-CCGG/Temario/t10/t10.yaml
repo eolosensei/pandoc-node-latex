@@ -1,7 +1,7 @@
 # reader and writer
 from: markdown
 to: pdf
-data-dir: /workspaces/pandoc-node-latex/config
+data-dir: D:/pandoc-node-latex/config
 resource-path: 
 - .
 - ${.}/media/
@@ -13,7 +13,7 @@ input-file:
 # - 2.puras.md
 # - 3.mezclas.md
 # - 4.disoluciones.md
-  - 5.átomo.md
+  - 8.gases.md
 output-file: T10-Materia.pdf
 
 # template to use
@@ -23,6 +23,7 @@ self-contained: false
 
 # variables for document configuration
 variables:
+  config-folder: D:/pandoc-node-latex/config
   debug: false
   lang: es-ES
   toc: true
