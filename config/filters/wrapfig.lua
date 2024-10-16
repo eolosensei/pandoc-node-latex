@@ -6,6 +6,24 @@ local if_option = function(attr)
   end
 end
 
+-- ## wrapfig pandoc ##
+-- Este filtro implementa la funcionalidad del paquete wrapfig para latex en 
+-- la conversión de pandoc desde markdown a pdf.
+--
+-- El comando original de latex es
+-- \begin{wrapfigure}[〈number of narrow lines〉]{〈placement〉}[〈overhang〉]{〈width〉} 〈figure〉\end{wrapfigure}
+
+-- ## Uso ##
+-- Parámetros obligatorios:
+-- wrapfig = 〈r,l〉 / parámetros reconocidos para la variable placement en latex
+-- Este parámetro debe ser igual a la alineación (r,l) que se quiera para la imagen
+-- 
+-- wrapfig_width = 〈width〉 / paraámetro igual al que admite width
+-- Anchura de la figura
+-- 
+-- Parámetros opcionales:
+-- wrapfig_overhang: equivalente a overhang en latex
+-- wrapfig_lines: equivalente a number of narrow lines
 
 if FORMAT:match 'latex' then
   function Image (elem)

@@ -1,34 +1,26 @@
 # reader and writer
 from: markdown
-to: pdf
-# data-dir: D:/pandoc-node-latex/config
-data-dir: D:\Programación\pandoc-node-latex\config
+to: pptx
+data-dir: D:/DOCENCIA/banco-de-ejercicios/.pandoc-config
 resource-path: 
 - .
 - ${.}/media/
 
 # archivos de entrada y salida
 input-file:
-- 0.introducción.md
-- 1.composición.md
-- 4.disoluciones.md
-- 5.átomo.md
-- 6.tabla-periódica.md
-- 7.enlace.md
-- 8.gases.md
-output-file: T10-Materia.pdf
+- ACT-3E-up1.F3-Átomos.md
+output-file: test-beamer.pptx
 
 # template to use
 template: ged.pandoc.tex
+reference-doc: D:/DOCENCIA/banco-de-ejercicios/.pandoc-config/templates/custom-reference.docx
 standalone: true
 self-contained: false
 
 # variables for document configuration
 variables:
-  config-folder: D:/Programación/pandoc-node-latex/config
   debug: false
   lang: es-ES
-  toc: true
   colorlinks: true
   multicols: true
   geometry:
@@ -39,7 +31,7 @@ variables:
 #    - scale=0.7
 #    - vscale=0.7
     - top=30mm
-#    - left=30mm
+    - right=25mm
 #    - bindingoffset=10mm
   fontfamily: FiraSans
   fontfamilyoptions:
@@ -47,13 +39,13 @@ variables:
     - lining
   xsim:
     exercise:
-      print: true
+      print: false
       template: gedmargin
     solution:
-      print: false
-      template: gedsolution
-      name: 'Solución: '
-    endsolution: true
+      print: true
+      template: gedmargin
+      name: 'S'
+    endsolution: false
   header-includes:
     - \everymath{\displaystyle}
   printed-date: false
@@ -65,11 +57,12 @@ variables:
 # To include the built-in citeproc filter, use either `citeproc`
 # or `{type: citeproc}`.
 filters:
-# - wrapfig.lua
-- center-image.lua
+- wrapfig.lua
+#- center-image.lua
 - xsim-list.lua
 - chemformula.lua
 - siunitx.lua
+
 # - ./Lua-filters/multicol.lua
 
 # pdf engine configuration
