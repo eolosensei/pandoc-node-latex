@@ -1,8 +1,8 @@
 # reader and writer
 from: markdown
 to: pdf
-# data-dir: D:/pandoc-node-latex/config
-data-dir: D:\Programación\pandoc-node-latex\config
+data-dir: D:/pandoc-node-latex/config
+# data-dir: D:\Programación\pandoc-node-latex\config
 resource-path: 
 - .
 - ${.}/media/
@@ -25,7 +25,7 @@ self-contained: false
 
 # variables for document configuration
 variables:
-  config-folder: D:/Programación/pandoc-node-latex/config
+  config-folder: D:/pandoc-node-latex/config
   debug: false
   lang: es-ES
   toc: true
